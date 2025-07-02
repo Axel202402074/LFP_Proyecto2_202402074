@@ -1,0 +1,311 @@
+/* Estilos de navegación */
+.navbar {
+    background-color: #4dd188;
+    overflow: visible; 
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0; 
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding: 15px 20px;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Estilos del dropdown mejorados */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.dropbtn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 10000;
+    border-radius: 4px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    border: 1px solid #ddd;
+}
+
+.dropdown-content a {
+    color: black !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 30px 0;
+}
+
+/* Layout principal mejorado */
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    height: calc(100vh - 120px); /* Altura fija basada en la ventana */
+}
+
+/* Sección del editor */
+.editor-section {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+}
+
+.editor-section h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Editor de texto con altura fija */
+#text {
+    flex: 1;
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    overflow: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+    line-height: 1.4;
+}
+
+#text:focus {
+    outline: 2px solid #4dd188;
+    border-color: #4dd188;
+}
+
+
+/* Columna de la tabla */
+.table-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+}
+
+/* Sección de la tabla mejorada */
+.form-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.form-section h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Wrapper de tabla con altura fija */
+.token-table-wrapper {
+    flex: 1;
+    min-height: 300px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Tabla de tokens */
+.token-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.token-table th, .token-table td {
+    padding: 12px 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.token-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.token-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.token-table tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Estilos de tabla de errores */
+.error-lexico {
+    background-color: #ffffff;
+}
+
+.error-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.error-table th, .error-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.error-table th {
+    background-color: #f5f5f5;
+}
+
+/* Elementos de formulario adicionales */
+.form-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .editor-section, .table-column {
+        min-width: auto;
+    }
+    
+    #text {
+        min-height: 200px;
+    }
+    
+    .token-table-wrapper {
+        min-height: 250px;
+    }
+}
+
+#pensums {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn_user {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 10px 20px;
+  background-color: #4dd188;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}

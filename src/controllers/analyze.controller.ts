@@ -44,3 +44,7 @@ export const analyze = (req: Request, res: Response) => {
         colors: scanner.getColors()
     });
 }
+
+export const showLexicalErrors = (req: Request, res: Response) => {
+    res.render('pages/errors', { errors: [] }); // errors vacíos, serán llenados en el frontend
+};

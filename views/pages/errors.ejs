@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errores de Análisis - Práctica 1</title>
+    <link rel="stylesheet" href="/CSS/index2.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <span class="logo">Proyecto 2</span>
+            <div class="dropdown">
+                <button class="dropbtn">Archivo</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="cargarArchivo()">Cargar archivo</a>
+                    <a href="#" onclick="limpiarEditor()">Limpiar editor</a>
+                    <a href="#" onclick="guardarArchivo()">Guardar archivo</a>
+                </div>
+            </div>
+            <a href="/">Inicio</a>
+        </div>
+    </nav>
+
+    <h1>Tabla de errores léxicos</h1>
+    <div class="container">
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 100%; max-width: 1000px; margin: 0 auto;">
+            <table class="error-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Token</th>
+                        <th>Lexema</th>
+                        <th>Fila</th>
+                        <th>Columna</th>
+                    </tr>
+                </thead>
+                <tbody id="error-body">
+                    <!-- Se llenará con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Botón para volver al editor -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="/" class="btn btn-primary">Volver al editor</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const errors = JSON.parse(localStorage.getItem('lexicalErrors')) || [];
+            const tableBody = document.getElementById('error-body');
+            let content = '';
+
+            if (errors.length > 0) {
+                errors.forEach((error, index) => {
+                    content += `
+                        <tr class="error-lexico">
+                            <td>${index + 1}</td>
+                            <td>${error.typeTokenString}</td>
+                            <td>${error.lexeme}</td>
+                            <td>${error.row}</td>
+                            <td>${error.column}</td>
+                        </tr>
+                    `;
+                });
+            } else {
+                content = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: green; font-weight: bold; padding: 20px;">
+                            No hay errores léxicos 
+                        </td>
+                    </tr>
+                `;
+            }
+
+            tableBody.innerHTML = content;
+        });
+    </script>
+</body>
+</html>
